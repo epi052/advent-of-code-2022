@@ -1,2 +1,2 @@
-# advent-of-code-2021
-Solutions for AoC 2021
+# advent-of-code-2022
+Solutions for AoC 2022
