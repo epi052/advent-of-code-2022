@@ -8,7 +8,7 @@ fn part_one(input: &str) -> i32 {
     let mut results: BinaryHeap<_> = input
         .split("\n\n")
         .map(|elf| {
-            elf.split("\n")
+            elf.split('\n')
                 .map(|calories| calories.parse::<i32>().unwrap())
                 .sum()
         })
@@ -21,7 +21,7 @@ fn part_two(input: &str) -> i32 {
     let results = input
         .split("\n\n")
         .map(|elf| {
-            elf.split("\n")
+            elf.split('\n')
                 .map(|calories| calories.parse::<i32>().unwrap())
                 .sum()
         })

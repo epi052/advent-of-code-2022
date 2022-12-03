@@ -7,15 +7,15 @@ const ALPHABET: &str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 fn part_one(input: &str) -> Result<i32> {
     let result = input
-        .split("\n")
+        .split('\n')
         .map(|line| {
             let (left, right) = line.split_at(line.len() / 2);
 
             let Some(shared) = left
                 .chars()
-                .filter(|l| {
+                .find(|l| {
                     right.contains(*l)
-                }).next() else {
+                }) else {
                     return 0;
                 };
 
@@ -29,15 +29,15 @@ fn part_one(input: &str) -> Result<i32> {
 fn part_two(input: &str) -> Result<i32> {
     // iterate over input lines in chunks of 3
     let result = input
-        .split("\n")
+        .split('\n')
         .collect::<Vec<_>>()
         .chunks(3)
         .map(|group| {
             let Some(shared) = group[0]
                     .chars()
-                    .filter(|item| {
+                    .find(|item| {
                         group[1].contains(*item) && group[2].contains(*item)
-                    }).next() else {
+                    }) else {
                         return 0;
                     };
             ALPHABET.find(shared).unwrap() as i32 + 1

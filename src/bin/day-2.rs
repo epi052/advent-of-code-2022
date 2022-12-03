@@ -24,7 +24,7 @@ impl HandShape {
 
     fn versus(&self, other: &HandShape) -> i32 {
         match self.cmp(other) {
-            Ordering::Less => 0 + self.inner(),
+            Ordering::Less => self.inner(),
             Ordering::Equal => 3 + self.inner(),
             Ordering::Greater => 6 + self.inner(),
         }
@@ -70,9 +70,9 @@ impl FromStr for HandShape {
 
 fn part_one(input: &str) -> Result<i32> {
     let results = input
-        .split("\n")
+        .split('\n')
         .map(|round| {
-            let mut hands = round.split(" ").map(|s| s.parse::<HandShape>().unwrap());
+            let mut hands = round.split(' ').map(|s| s.parse::<HandShape>().unwrap());
 
             let opponent = hands.next().unwrap();
             let me = hands.next().unwrap();
@@ -86,10 +86,10 @@ fn part_one(input: &str) -> Result<i32> {
 
 fn part_two(input: &str) -> Result<i32> {
     let results = input
-        .split("\n")
+        .split('\n')
         .map(|round| {
             let me = round.parse::<HandShape>().unwrap();
-            let mut hands = round.split(" ").map(|s| s.parse::<HandShape>().unwrap());
+            let mut hands = round.split(' ').map(|s| s.parse::<HandShape>().unwrap());
 
             let opponent = hands.next().unwrap();
 

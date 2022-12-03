@@ -1,6 +1,6 @@
 use clap::Parser;
-use std::fs::read_to_string;
-use std::path::Path;
+
+
 
 /// cli for aoc binaries
 #[derive(Parser)]
@@ -15,7 +15,7 @@ pub fn parse_args() -> AoCArgParser {
     AoCArgParser::parse()
 }
 
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
 pub enum Solver {
     PartOne,
     PartTwo,
