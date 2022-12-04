@@ -1,7 +1,5 @@
 use clap::Parser;
 
-
-
 /// cli for aoc binaries
 #[derive(Parser)]
 pub struct AoCArgParser {
@@ -16,7 +14,7 @@ pub fn parse_args() -> AoCArgParser {
 }
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
-pub enum Solver {
-    PartOne,
-    PartTwo,
+pub enum PuzzlePart {
+    One,
+    Two,
 }
