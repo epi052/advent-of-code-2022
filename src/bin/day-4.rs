@@ -35,10 +35,7 @@ fn solve(input: &str, part: PuzzlePart) -> i32 {
 
             match part {
                 PuzzlePart::One => elves[0].is_subset(&elves[1]) || elves[0].is_superset(&elves[1]),
-                PuzzlePart::Two => !elves[0]
-                    .intersection(&elves[1])
-                    .collect::<Vec<_>>()
-                    .is_empty(),
+                PuzzlePart::Two => elves[0].intersection(&elves[1]).next().is_some(),
             }
         })
         .count() as i32
