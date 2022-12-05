@@ -120,8 +120,7 @@ mod tests {
     use super::*;
     static TEST_INPUT: &str = "A Y
 B X
-C Z
-";
+C Z";
 
     #[test]
     fn test_one() -> Result<()> {
