@@ -6,11 +6,11 @@ use color_eyre::Result;
 static INPUT: &str = include_str!("../inputs/input-6");
 
 fn solve(input: &str, length: usize) -> Result<i32> {
-    for chunk in input.char_indices().collect::<Vec<_>>().windows(length) {
-        let unique = chunk.iter().map(|(_, ch)| ch).collect::<HashSet<_>>();
+    for (idx, window) in input.as_bytes().windows(length).enumerate() {
+        let unique = window.iter().collect::<HashSet<_>>();
 
         if unique.len() == length {
-            return Ok(chunk[0].0 as i32 + length as i32);
+            return Ok(idx as i32 + length as i32);
         }
     }
 
