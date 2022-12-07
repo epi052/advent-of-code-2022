@@ -8,7 +8,7 @@ static INPUT: &str = include_str!("../inputs/input-7");
 #[derive(Debug, Default)]
 struct FsMap {
     cwd: Vec<String>,
-    map: HashMap<String, usize>,
+    map: HashMap<String, i32>,
 }
 
 impl FsMap {
@@ -43,7 +43,7 @@ impl FsMap {
                 }
                 Some('1'..='9') => {
                     // file, add file size to all directories in cwd
-                    let size = parts.next().unwrap().parse::<usize>().unwrap();
+                    let size = parts.next().unwrap().parse::<i32>().unwrap();
                     let mut tmp = fs.cwd.clone();
 
                     while !tmp.is_empty() {
@@ -65,7 +65,7 @@ impl FsMap {
                 .iter()
                 .filter_map(|(_, &size)| {
                     if size < 100_000 {
-                        Some(size as i32)
+                        Some(size)
                     } else {
                         None
                     }
@@ -82,7 +82,7 @@ impl FsMap {
                     .iter()
                     .filter_map(|(_, &size)| {
                         if size >= delta {
-                            Some(size as i32)
+                            Some(size)
                         } else {
                             None
                         }
